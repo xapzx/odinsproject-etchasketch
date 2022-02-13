@@ -1,4 +1,4 @@
-const main = document.querySelector(".main-container");
+const main = document.querySelector(".mc-border");
 let count = 0;
 
 for(let i = 0; i < 16; i++){
