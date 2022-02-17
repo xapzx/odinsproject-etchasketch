@@ -20,14 +20,6 @@ function createGrid(size) {
     }
 }
 
-
-// //Event listener to allow drawing on the grid
-// const hover = document.querySelector('.mc-border');
-// hover.addEventListener("mouseover", function(event) {
-//     // highlight the mouseover target
-//     event.target.style.background = "black";
-// });
-
 //Clear the grid
 const clear = document.querySelector('.reset');
 clear.addEventListener("click", function() {
