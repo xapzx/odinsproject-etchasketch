@@ -1,27 +1,32 @@
 const main = document.querySelector(".mc-border");
-let count = 0;
 
-for(let i = 0; i < 16; i++){
-    let vertical = document.createElement('div')
-    vertical.classList.add('squareRow');
-    for(let j = 0; j < 16; j++){
-        let horizontal = document.createElement('DIV');
-        horizontal.classList.add('squareCol');
-        vertical.appendChild(horizontal);
-        // horizontal.textContent = count++;
-        // horizontal.addEventListener('mouseover', function(event){
-        //     event.target.style.backgroundColor = 'black';
-        // })
+function createGrid(size) {
+    let squareSize = document.querySelector('.mc-border').clientWidth / size;
+    for(let i = 0; i < size; i++){
+        let vertical = document.createElement('div')
+        vertical.classList.add('squareRow');
+        for(let j = 0; j < size; j++){
+            let horizontal = document.createElement('DIV');
+            horizontal.classList.add('squareCol');
+            horizontal.style.width = squareSize + 'px';
+            horizontal.style.height = squareSize + 'px';
+            vertical.appendChild(horizontal);
+            
+            horizontal.addEventListener('mouseover', function(event){
+                event.target.style.backgroundColor = 'black';
+            })
+        }
+        main.appendChild(vertical);
     }
-    main.appendChild(vertical);
 }
 
-//Event listener to allow drawing on the grid
-const hover = document.querySelector('.mc-border');
-hover.addEventListener("mouseover", function(event) {
-    // highlight the mouseover target
-    event.target.style.background = "black";
-});
+
+// //Event listener to allow drawing on the grid
+// const hover = document.querySelector('.mc-border');
+// hover.addEventListener("mouseover", function(event) {
+//     // highlight the mouseover target
+//     event.target.style.background = "black";
+// });
 
 //Clear the grid
 const clear = document.querySelector('.reset');
@@ -31,3 +36,13 @@ clear.addEventListener("click", function() {
         square.style.background = 'white';
     })
 })
+
+//Change grid pixel size
+const applyButton = document.querySelector('.apply');
+applyButton.addEventListener('click', function() {
+    let size = document.getElementById('gridRange').value;
+    document.querySelector('.mc-border').innerHTML = '';
+    createGrid(size);
+})
+
+createGrid(16);
