@@ -11,7 +11,7 @@ function createGrid(size) {
             horizontal.style.width = squareSize + 'px';
             horizontal.style.height = squareSize + 'px';
             vertical.appendChild(horizontal);
-            
+
             horizontal.addEventListener('mouseover', function(event){
                 event.target.style.backgroundColor = 'black';
             })

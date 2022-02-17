@@ -23,6 +23,7 @@ header{
     flex: 1;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 
 .mc-border{
@@ -37,11 +38,14 @@ header{
 }
 
 .squareCol{
-    /* height: 25px;
-    width: 25px; */
     background-color: white;
 }
 
 .slider-container{
     display: flex;
+    gap: 10px;
+}
+
+.reset, .apply{
+    padding: 10px;
 }
